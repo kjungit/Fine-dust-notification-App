@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ItemWrapper = styled.div`
   display: flex;
@@ -12,6 +12,32 @@ export const ItemWrapper = styled.div`
   background-image: url(/images/good.jpg);
   background-size: 400px;
   margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0px 0px 5px #000;
+
+  ${({ value }) =>
+    value === "보통" &&
+    css`
+      background-image: url(/images/usually.jpg);
+    `}
+
+  ${({ value }) =>
+    value === "한때나쁨" &&
+    css`
+      background-image: url(/images/bad.jpg);
+    `}
+
+  ${({ value }) =>
+    value === "나쁨" &&
+    css`
+      background-image: url(/images/oncebad.jpg);
+    `}
+
+  ${({ value }) =>
+    value === "매우나쁨" &&
+    css`
+      background-image: url(/images/verybad.jpg);
+    `}
 `;
 
 export const LeftWrapper = styled.div`
@@ -26,13 +52,15 @@ export const Title = styled.div`
 `;
 
 export const SidoName = styled.div`
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
 `;
 
 export const StationName = styled.div`
   font-size: 26px;
   padding-left: 6px;
   line-height: 30px;
+  font-weight: 700;
 `;
 
 export const DataTime = styled.div``;

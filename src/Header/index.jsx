@@ -1,5 +1,5 @@
 import React from "react";
-import SelectItem from "../components/SelectItem";
+import SelectSidoNameItem from "../components/SelectSidoNameItem";
 import styled from "styled-components";
 
 const SelectWrapper = styled.div`
@@ -14,7 +14,7 @@ function Header() {
     <div>
       <SelectWrapper>
         {/* <SelectItem placeholder={"시/도"} width={140} /> */}
-        <SelectItem placeholder={"지역선택"} width={320} />
+        <SelectSidoNameItem placeholder={"지역선택"} width={320} />
       </SelectWrapper>
     </div>
   );

@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 
-function SelectItem({ placeholder, width }) {
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
+function SelectItem({ placeholder, width, changeHandler, options }) {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -15,21 +9,18 @@ function SelectItem({ placeholder, width }) {
     }),
     menu: (provided) => ({
       ...provided,
-
       width,
     }),
   };
-
-  const [selectedOption, setSelectedOption] = useState(null);
 
   return (
     <div>
       <Select
         styles={customStyles}
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
+        onChange={changeHandler}
         options={options}
         placeholder={placeholder}
+        menuPlacement="top"
       />
     </div>
   );

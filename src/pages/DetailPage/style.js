@@ -8,6 +8,7 @@ export const ItemWrapper = styled.div`
   background-image: url(/images/good.jpg);
   background-size: 1200px;
   background-position: -240px;
+  background-repeat: no-repeat;
   color: #fff;
 `;
 export const TopWrapper = styled.div`

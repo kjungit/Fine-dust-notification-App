@@ -1,19 +1,8 @@
 import React from "react";
+import { Provider } from "react-redux";
 import "./App.css";
-import axios from "axios";
-import Header from "./Header";
-import MainInfoItem from "./components/MainInfoItem";
-import SecondInfoItem from "./components/SecondInfoItem";
-import DetailPage from "./components/DetailPage";
-// const getParameters = {
-//   serviceKey:
-//     "ujgF2jP0uCRpTRsHmLf2jYs6pQ3ld554lGxy1sj9j3UYMrxbu31CuLobu9AJzPS/CMkTxDlfrBA0dLy8GoeBlA==",
-//   returnType: "json",
-//   numOfRows: "10",
-//   pageNo: "1",
-//   sidoName: "서울",
-//   ver: "1.0",
-// };
+import Router from "./routes/Router";
+import store from "./store";
 
 // const fetchData = async () => {
 //   const response = await axios.get(
@@ -27,9 +16,11 @@ import DetailPage from "./components/DetailPage";
 
 function App() {
   return (
-    <div className="App">
-      <DetailPage></DetailPage>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Router />
+      </div>
+    </Provider>
   );
 }
 

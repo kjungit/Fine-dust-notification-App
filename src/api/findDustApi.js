@@ -13,6 +13,7 @@ export const getParameters = (sidoName = "전국") => {
 
 export const fineDustApi = createApi({
   reducerPath: "findDust",
+  tagTypes: ["FindDust"],
   baseQuery: fetchBaseQuery({
     baseUrl: "/api/B552584/ArpltnInforInqireSvc/",
   }),
@@ -23,7 +24,12 @@ export const fineDustApi = createApi({
         url: "/getCtprvnRltmMesureDnsty",
         params: getParameters(sidoName),
         keepUnusedDataFor: 600,
+        transform: (response) => {
+          console.log(response);
+          return response;
+        },
       }),
+      transformResponse: (response) => response.response.body.items,
     }),
   }),
 });
