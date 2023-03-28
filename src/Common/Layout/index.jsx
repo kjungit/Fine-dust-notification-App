@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { RiMapPinLine, RiMapPinFill, RiHomeSmile2Line } from "react-icons/ri";
+import { RiMapPinLine, RiHomeSmile2Line } from "react-icons/ri";
 import { TbMapSearch } from "react-icons/tb";
 import { AiOutlineStar } from "react-icons/ai";
 
@@ -28,7 +28,7 @@ const NavbarLink = styled(Link)`
 `;
 function Layout() {
   return (
-    <nav>
+    <>
       <Outlet />
       <NavbarContainer>
         <NavbarLink to="/">
@@ -44,7 +44,7 @@ function Layout() {
           <AiOutlineStar className="icon" />
         </NavbarLink>
       </NavbarContainer>
-    </nav>
+    </>
   );
 }
 

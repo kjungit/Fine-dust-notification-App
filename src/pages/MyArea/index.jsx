@@ -42,14 +42,16 @@ function MyArea() {
   return (
     <S.MyAreaContainer>
       <S.ItemWrapper>
-        {filterData.map((item) => (
-          <MainInfoItem
-            sidoName={item.sidoName}
-            stationName={item.stationName}
-            dataTime={item.dataTime}
-            pm10Grade={item.pm10Grade}
-            pm10Value={item.pm10Value}
-          />
+        {filterData.map((item, index) => (
+          <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
+            <MainInfoItem
+              sidoName={item.sidoName}
+              stationName={item.stationName}
+              dataTime={item.dataTime}
+              pm10Grade={item.pm10Grade}
+              pm10Value={item.pm10Value}
+            />
+          </S.NavbarLink>
         ))}
       </S.ItemWrapper>
       <S.SelectWrapper>

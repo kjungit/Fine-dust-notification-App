@@ -4,6 +4,7 @@ import Layout from "../Common/Layout";
 import FavoriteArea from "../pages/FavoriteArea";
 import MyArea from "../pages/MyArea";
 import SearchArea from "../pages/SearchArea";
+import DetailPage from "../pages/DetailPage";
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
         <Route path="myArea" element={<MyArea />} />
         <Route path="searchArea" element={<SearchArea />} />
         <Route path="favoriteArea" element={<FavoriteArea />} />
+        <Route path="/:stationId" element={<DetailPage />} />
       </Route>
     </Routes>
   );

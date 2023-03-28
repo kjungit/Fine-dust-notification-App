@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ItemWrapper = styled.div`
   display: flex;
@@ -8,12 +8,45 @@ export const ItemWrapper = styled.div`
   height: 140px;
   background-color: lightgray;
   border-radius: 10px;
-  padding: 10px;
+  padding: 8px;
   box-sizing: border-box;
   background-image: url(/images/good.jpg);
-  background-size: 220px;
+  background-size: 240px;
   background-position: -30px;
   margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0px 0px 5px #000;
+  border: 3px solid;
+  box-sizing: border-box;
+  ${({ border }) =>
+    border === true &&
+    css`
+      border: 3px solid #000;
+    `}
+
+  ${({ value }) =>
+    value === "보통" &&
+    css`
+      background-image: url(/images/usually.jpg);
+    `}
+
+  ${({ value }) =>
+    value === "한때나쁨" &&
+    css`
+      background-image: url(/images/bad.jpg);
+    `}
+
+  ${({ value }) =>
+    value === "나쁨" &&
+    css`
+      background-image: url(/images/oncebad.jpg);
+    `}
+
+  ${({ value }) =>
+    value === "매우나쁨" &&
+    css`
+      background-image: url(/images/verybad.jpg);
+    `}
 `;
 
 export const TopWrapper = styled.div`

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 export const MyAreaContainer = styled.div``;
 
@@ -23,4 +24,7 @@ export const SelectWrapper = styled.div`
     rgba(255, 255, 255, 0.1) 90%,
     rgba(255, 255, 255, 0) 100%
   );
+`;
+export const NavbarLink = styled(Link)`
+  text-decoration: none;
 `;
