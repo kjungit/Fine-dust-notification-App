@@ -5,7 +5,7 @@ import SelectItem from "../../components/SelectItem";
 import * as S from "./style";
 import { sidoNameList } from "../../constans/sidoName";
 
-function MyArea() {
+function MyAreaPage() {
   const didMount = useRef(false);
   const [sidoNameOption, setSidoNameOption] = useState("전국");
   const [stationNameOption, setStationNameOption] = useState([]);
@@ -14,7 +14,7 @@ function MyArea() {
   const { data, isLoading, isError } = useGetFineDustDataQuery(sidoNameOption);
 
   useEffect(() => {
-    if (didMount.current && data !== undefined) {
+    if (didMount.current && data) {
       setFilterData(data);
       const stationOption = Object.values(data)
         .map((item) => item.stationName)
@@ -38,21 +38,23 @@ function MyArea() {
 
   if (isLoading) return <>로딩중 ...</>;
   if (isError) return <>에러 ...</>;
-
+  console.log(filterData);
   return (
     <S.MyAreaContainer>
       <S.ItemWrapper>
-        {filterData.map((item, index) => (
-          <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
-            <MainInfoItem
-              sidoName={item.sidoName}
-              stationName={item.stationName}
-              dataTime={item.dataTime}
-              pm10Grade={item.pm10Grade}
-              pm10Value={item.pm10Value}
-            />
-          </S.NavbarLink>
-        ))}
+        {filterData &&
+          filterData.map((item, index) => (
+            <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
+              <MainInfoItem
+                data={item}
+                sidoName={item.sidoName}
+                stationName={item.stationName}
+                dataTime={item.dataTime}
+                pm10Grade={item.pm10Grade}
+                pm10Value={item.pm10Value}
+              />
+            </S.NavbarLink>
+          ))}
       </S.ItemWrapper>
       <S.SelectWrapper>
         <SelectItem
@@ -74,4 +76,4 @@ function MyArea() {
   );
 }
 
-export default MyArea;
+export default MyAreaPage;

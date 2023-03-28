@@ -4,15 +4,15 @@ export const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   background-color: lightgray;
   border-radius: 10px;
   padding: 8px;
   box-sizing: border-box;
   background-image: url(/images/good.jpg);
   background-size: 240px;
-  background-position: -30px;
+  background-position: -20px;
   margin-bottom: 10px;
   color: #fff;
   text-shadow: 0px 0px 5px #000;

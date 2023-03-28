@@ -25,7 +25,6 @@ export const fineDustApi = createApi({
         params: getParameters(sidoName),
         keepUnusedDataFor: 600,
         transform: (response) => {
-          console.log(response);
           return response;
         },
       }),

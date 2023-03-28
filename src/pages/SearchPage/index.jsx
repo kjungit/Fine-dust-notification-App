@@ -19,9 +19,10 @@ function SearchArea() {
     <div>
       <S.SearchContainer>
         <S.ItemWrapper>
-          {data.map((item) => (
-            <S.NavbarLink to={"/" + item.stationName} state={item}>
+          {data.map((item, index) => (
+            <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
               <SecondInfoItem
+                data={item}
                 sidoName={item.sidoName}
                 stationName={item.stationName}
                 dataTime={item.dataTime}

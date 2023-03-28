@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import * as S from "./style";
 function MainInfoItem({
   sidoName,
@@ -6,6 +7,7 @@ function MainInfoItem({
   dataTime,
   pm10Grade,
   pm10Value,
+  data,
 }) {
   switch (pm10Grade) {
     case "1":
@@ -26,6 +28,35 @@ function MainInfoItem({
     default:
       pm10Grade = "그럭저럭";
   }
+  const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];
+    if (favoriteData[0] !== null) {
+      const clickState = favoriteData.find(
+        (item) => item.stationName === stationName
+      );
+      if (clickState) setIsClicked(true);
+    }
+  }, [isClicked]);
+
+  const onClickHandle = (e) => {
+    const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];
+
+    e.preventDefault();
+    const existingDataIndex = favoriteData.findIndex(
+      (item) => item.stationName === data.stationName
+    );
+    console.log(existingDataIndex);
+    if (!isClicked && existingDataIndex === -1) {
+      favoriteData.push(data);
+    }
+    if (existingDataIndex !== -1) {
+      favoriteData.splice(existingDataIndex, 1);
+    }
+    localStorage.setItem("favoriteData", JSON.stringify(favoriteData));
+    setIsClicked(!isClicked);
+  };
   return (
     <S.ItemWrapper value={pm10Grade}>
       <S.LeftWrapper>
@@ -36,6 +67,11 @@ function MainInfoItem({
         <S.DataTime>{dataTime} 기준</S.DataTime>
       </S.LeftWrapper>
       <S.RightWrapper>
+        {!isClicked ? (
+          <AiOutlineStar className="favorites" onClick={onClickHandle} />
+        ) : (
+          <AiFillStar className="favorites" onClick={onClickHandle} />
+        )}
         <S.StateTitle>{pm10Grade}</S.StateTitle>
         <S.PmGrade>{pm10Value}</S.PmGrade>
       </S.RightWrapper>

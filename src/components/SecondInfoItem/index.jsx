@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 function SecondInfoItem({
@@ -7,9 +7,8 @@ function SecondInfoItem({
   dataTime,
   pm10Grade,
   pm10Value,
+  data,
 }) {
-  const [isClicked, setIsClicked] = useState(false);
-
   switch (pm10Grade) {
     case "1":
       pm10Grade = "좋음";
@@ -30,13 +29,35 @@ function SecondInfoItem({
       pm10Grade = "그럭저럭";
   }
 
-  const onClickHandle = (e) => {
-    setIsClicked(!isClicked);
-    console.log(e.target.parentElement);
-    localStorage.setItem("favariteItem", JSON.stringify({ name: stationName }));
-  };
+  const [isClicked, setIsClicked] = useState(false);
 
-  const getLocation = () => {};
+  useEffect(() => {
+    const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];
+    if (favoriteData[0] !== null) {
+      const clickState = favoriteData.find(
+        (item) => item.stationName === stationName
+      );
+      if (clickState) setIsClicked(true);
+    }
+  }, [isClicked]);
+
+  const onClickHandle = (e) => {
+    const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];
+
+    e.preventDefault();
+    const existingDataIndex = favoriteData.findIndex(
+      (item) => item.stationName === data.stationName
+    );
+
+    if (!isClicked && existingDataIndex === -1) {
+      favoriteData.push(data);
+    }
+    if (existingDataIndex !== -1) {
+      favoriteData.splice(existingDataIndex, 1);
+    }
+    localStorage.setItem("favoriteData", JSON.stringify(favoriteData));
+    setIsClicked(!isClicked);
+  };
 
   return (
     <S.ItemWrapper value={pm10Grade} border={isClicked}>
