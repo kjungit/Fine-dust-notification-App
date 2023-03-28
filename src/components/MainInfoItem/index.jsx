@@ -47,7 +47,6 @@ function MainInfoItem({
     const existingDataIndex = favoriteData.findIndex(
       (item) => item.stationName === data.stationName
     );
-    console.log(existingDataIndex);
     if (!isClicked && existingDataIndex === -1) {
       favoriteData.push(data);
     }
@@ -58,21 +57,24 @@ function MainInfoItem({
     setIsClicked(!isClicked);
   };
   return (
-    <S.ItemWrapper value={pm10Grade}>
+    <S.ItemWrapper value={pm10Grade} border={isClicked}>
       <S.LeftWrapper>
         <S.Title>
           <S.SidoName>{sidoName}</S.SidoName>
-          <S.StationName>{stationName}</S.StationName>
         </S.Title>
+        <S.StationName>{stationName}</S.StationName>
         <S.DataTime>{dataTime} 기준</S.DataTime>
       </S.LeftWrapper>
       <S.RightWrapper>
-        {!isClicked ? (
-          <AiOutlineStar className="favorites" onClick={onClickHandle} />
-        ) : (
-          <AiFillStar className="favorites" onClick={onClickHandle} />
-        )}
-        <S.StateTitle>{pm10Grade}</S.StateTitle>
+        <S.MiddleWrapper>
+          <S.StateTitle>{pm10Grade}</S.StateTitle>
+          {!isClicked ? (
+            <AiOutlineStar className="favorites" onClick={onClickHandle} />
+          ) : (
+            <AiFillStar className="favorites" onClick={onClickHandle} />
+          )}
+        </S.MiddleWrapper>
+
         <S.PmGrade>{pm10Value}</S.PmGrade>
       </S.RightWrapper>
     </S.ItemWrapper>

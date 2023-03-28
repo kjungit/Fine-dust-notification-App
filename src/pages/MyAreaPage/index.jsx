@@ -36,9 +36,18 @@ function MyAreaPage() {
     }
   };
 
-  if (isLoading) return <>로딩중 ...</>;
-  if (isError) return <>에러 ...</>;
-  console.log(filterData);
+  if (isLoading)
+    return (
+      <S.Background>
+        <S.Spinner />
+      </S.Background>
+    );
+  if (isError)
+    return (
+      <S.Background>
+        <S.Spinner />
+      </S.Background>
+    );
   return (
     <S.MyAreaContainer>
       <S.ItemWrapper>

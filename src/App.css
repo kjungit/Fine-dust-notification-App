@@ -1,8 +1,16 @@
+body {
+  background-attachment: fixed;
+  background-image: url("../public/images/background.jpg");
+  background-size: 100%;
+  background-position: 0 -50px;
+  background-repeat: no-repeat;
+}
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .App-logo {

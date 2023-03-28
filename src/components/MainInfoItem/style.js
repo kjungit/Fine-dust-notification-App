@@ -13,7 +13,18 @@ export const ItemWrapper = styled.div`
   background-size: 400px;
   margin-bottom: 10px;
   color: #fff;
-  text-shadow: 0px 0px 5px #000;
+  text-shadow: 0px 0px 7px #000;
+  border: 5px solid rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  ${({ border }) =>
+    border === true &&
+    css`
+      border: 5px solid #000;
+    `}
 
   ${({ value }) =>
     value === "보통" &&
@@ -44,6 +55,7 @@ export const LeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 `;
 
 export const Title = styled.div`
@@ -57,13 +69,24 @@ export const SidoName = styled.div`
 `;
 
 export const StationName = styled.div`
-  font-size: 26px;
+  font-size: 24px;
   padding-left: 6px;
   line-height: 30px;
   font-weight: 700;
+  text-align: left;
+`;
+export const DataTime = styled.div``;
+
+export const MiddleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  .favorites {
+    font-size: 27px;
+    padding-left: 10px;
+  }
 `;
 
-export const DataTime = styled.div``;
 export const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -72,7 +95,7 @@ export const RightWrapper = styled.div`
 `;
 export const StateTitle = styled.div``;
 export const PmGrade = styled.div`
-  font-size: 62px;
+  font-size: 58px;
   line-height: 54px;
   font-weight: 500;
 `;

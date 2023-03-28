@@ -13,8 +13,18 @@ function SearchArea() {
     setSidoNameOption(sidoNameOption.value);
   };
 
-  if (isLoading) return <>로딩중 ...</>;
-  if (isError) return <>에러 ...</>;
+  if (isLoading)
+    return (
+      <S.Background>
+        <S.Spinner />
+      </S.Background>
+    );
+  if (isError)
+    return (
+      <S.Background>
+        <S.Spinner />
+      </S.Background>
+    );
   return (
     <div>
       <S.SearchContainer>

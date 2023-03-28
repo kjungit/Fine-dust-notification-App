@@ -4,12 +4,9 @@ export const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background-image: url(/images/good.jpg);
-  background-size: 1200px;
-  background-position: -240px;
-  background-repeat: no-repeat;
   color: #fff;
+  text-shadow: 0px 0px 7px #000;
+  padding-bottom: 100px;
 `;
 export const TopWrapper = styled.div`
   padding: 20px;
@@ -60,4 +57,10 @@ export const RelatedInfo = styled.div`
     justify-content: center;
     align-items: center;
   }
+`;
+
+export const ValueWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
 `;

@@ -64,7 +64,6 @@ function SecondInfoItem({
       <S.TopWrapper>
         <S.TitleWrapper>
           <S.SidoName>{sidoName}</S.SidoName>
-          <S.StationName>{stationName}</S.StationName>
         </S.TitleWrapper>
         {!isClicked ? (
           <AiOutlineStar className="favorites" onClick={onClickHandle} />
@@ -72,6 +71,10 @@ function SecondInfoItem({
           <AiFillStar className="favorites" onClick={onClickHandle} />
         )}
       </S.TopWrapper>
+      <S.MiddleWrapper>
+        <S.StationName>{stationName}</S.StationName>
+      </S.MiddleWrapper>
+
       <S.BottomWrapper>
         <S.StateTitle>{pm10Grade}</S.StateTitle>
         <S.PmGrade>{pm10Value}</S.PmGrade>
