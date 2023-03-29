@@ -8,7 +8,7 @@ import { sidoNameList } from "../../constans/sidoName";
 function SearchArea() {
   const [sidoNameOption, setSidoNameOption] = useState("전국");
   const { data, isLoading, isError } = useGetFineDustDataQuery(sidoNameOption);
-
+  console.log(data, isLoading, isError);
   const changeHandler = (sidoNameOption) => {
     setSidoNameOption(sidoNameOption.value);
   };
@@ -29,7 +29,7 @@ function SearchArea() {
     <div>
       <S.SearchContainer>
         <S.ItemWrapper>
-          {data.map((item, index) => (
+          {data.response.body.items.map((item, index) => (
             <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
               <SecondInfoItem
                 data={item}

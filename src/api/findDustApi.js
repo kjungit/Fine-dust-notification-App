@@ -24,11 +24,7 @@ export const fineDustApi = createApi({
         url: "/getCtprvnRltmMesureDnsty",
         params: getParameters(sidoName),
         keepUnusedDataFor: 600,
-        transform: (response) => {
-          return response;
-        },
       }),
-      transformResponse: (response) => response.response.body.items,
     }),
   }),
 });

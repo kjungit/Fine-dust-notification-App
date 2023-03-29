@@ -12,11 +12,10 @@ function MyAreaPage() {
   const [filterData, setFilterData] = useState([]);
 
   const { data, isLoading, isError } = useGetFineDustDataQuery(sidoNameOption);
-
   useEffect(() => {
     if (didMount.current && data) {
-      setFilterData(data);
-      const stationOption = Object.values(data)
+      setFilterData(data.response.body.items);
+      const stationOption = Object.values(data.response.body.items)
         .map((item) => item.stationName)
         .map((item) => {
           return { value: { item }, label: item };
@@ -29,7 +28,7 @@ function MyAreaPage() {
     if (sidoNameList.includes(sidoNameOption)) {
       setSidoNameOption(sidoNameOption.value);
     } else {
-      const selectStation = data.filter(
+      const selectStation = data.response.body.items.filter(
         (item) => item.stationName === sidoNameOption.value.item
       );
       setFilterData(selectStation);
