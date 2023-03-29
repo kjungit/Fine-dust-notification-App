@@ -1,6 +1,7 @@
 # Fine-dust-norification-App 
 
 ---
+![main](https://user-images.githubusercontent.com/100064540/228412038-a1995b1c-8b1d-4fe6-b717-d951534023d5.jpg)
 
 - ### 작업내용
 
