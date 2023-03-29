@@ -43,10 +43,11 @@ function MainInfoItem({
   const onClickHandle = (e) => {
     const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];
 
+    console.log(favoriteData);
     e.preventDefault();
-    const existingDataIndex = favoriteData.findIndex(
-      (item) => item.stationName === data.stationName
-    );
+    const existingDataIndex =
+      favoriteData.findIndex((item) => item.stationName === data.stationName) ||
+      -1;
     if (!isClicked && existingDataIndex === -1) {
       favoriteData.push(data);
     }
