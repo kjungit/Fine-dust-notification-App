@@ -15,7 +15,7 @@ export const fineDustApi = createApi({
   reducerPath: "findDust",
   tagTypes: ["FindDust"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api/B552584/ArpltnInforInqireSvc/",
+    baseUrl: "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/",
   }),
 
   endpoints: (builder) => ({
