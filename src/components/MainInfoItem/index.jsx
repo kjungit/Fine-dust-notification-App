@@ -45,7 +45,9 @@ function MainInfoItem({
     e.preventDefault();
     const existingDataIndex =
       favoriteData.findIndex((item) => item.stationName === data.stationName) ||
-      -1;
+      [];
+    console.log(existingDataIndex);
+
     if (!isClicked && existingDataIndex === -1) {
       favoriteData.push(data);
     }
