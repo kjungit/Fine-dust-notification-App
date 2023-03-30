@@ -12,6 +12,7 @@ function MyAreaPage() {
   const [filterData, setFilterData] = useState([]);
 
   const { data, isLoading, isError } = useGetFineDustDataQuery(sidoNameOption);
+
   useEffect(() => {
     if (didMount.current && data) {
       setFilterData(data.response.body.items);
@@ -20,6 +21,7 @@ function MyAreaPage() {
         .map((item) => {
           return { value: { item }, label: item };
         });
+      console.log(stationNameOption);
       setStationNameOption(stationOption);
     } else didMount.current = true;
   }, [sidoNameOption, data]);
@@ -52,7 +54,11 @@ function MyAreaPage() {
       <S.ItemWrapper>
         {filterData &&
           filterData.map((item, index) => (
-            <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
+            <S.NavbarLink
+              to={"/detail/" + item.stationName}
+              state={item}
+              key={index}
+            >
               <MainInfoItem
                 data={item}
                 sidoName={item.sidoName}

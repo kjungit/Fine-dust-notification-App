@@ -38,12 +38,10 @@ function MainInfoItem({
       );
       if (clickState) setIsClicked(true);
     }
-  }, [isClicked]);
+  }, [isClicked, stationName]);
 
   const onClickHandle = (e) => {
     const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];
-
-    console.log(favoriteData);
     e.preventDefault();
     const existingDataIndex =
       favoriteData.findIndex((item) => item.stationName === data.stationName) ||

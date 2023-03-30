@@ -4,7 +4,9 @@ import * as S from "./style";
 
 function DetailPage() {
   const location = useLocation();
+  console.log(location);
   const detailData = location.state;
+  console.log(detailData);
   let stateText = detailData.pm10Grade;
   switch (detailData.pm10Grade) {
     case "1":

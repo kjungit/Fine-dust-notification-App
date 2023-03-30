@@ -29,21 +29,6 @@ export const fineDustApi = createApi({
         params: getParameters(sidoName),
         keepUnusedDataFor: 600,
       }),
-      query: (sidoName) => ({
-        url: "/getCtprvnRltmMesureDnsty",
-        params: getParameters(sidoName),
-        keepUnusedDataFor: 600,
-      }),
-      query: (sidoName) => ({
-        url: "/getCtprvnRltmMesureDnsty",
-        params: getParameters(sidoName),
-        keepUnusedDataFor: 600,
-      }),
-      query: (sidoName) => ({
-        url: "/getCtprvnRltmMesureDnsty",
-        params: getParameters(sidoName),
-        keepUnusedDataFor: 600,
-      }),
     }),
   }),
 });

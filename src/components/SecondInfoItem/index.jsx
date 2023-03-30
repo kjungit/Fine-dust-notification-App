@@ -39,7 +39,7 @@ function SecondInfoItem({
       );
       if (clickState) setIsClicked(true);
     }
-  }, [isClicked]);
+  }, [isClicked, stationName]);
 
   const onClickHandle = (e) => {
     const favoriteData = JSON.parse(localStorage.getItem("favoriteData")) || [];

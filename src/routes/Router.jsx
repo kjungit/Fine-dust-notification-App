@@ -6,6 +6,7 @@ import MyAreaPage from "../pages/MyAreaPage";
 import SearchPage from "../pages/SearchPage";
 import DetailPage from "../pages/DetailPage";
 import MainPage from "../pages/MainPage";
+import NotFound from "../pages/NotFound";
 function Router() {
   return (
     <Routes>
@@ -14,7 +15,8 @@ function Router() {
         <Route path="myArea" element={<MyAreaPage />} />
         <Route path="searchArea" element={<SearchPage />} />
         <Route path="favoriteArea" element={<FavoritePage />} />
-        <Route path="/:stationId" element={<DetailPage />} />
+        <Route path="/detail/:stationId" element={<DetailPage />} />
+        <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
   );
