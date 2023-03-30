@@ -36,15 +36,6 @@ function MyAreaPage() {
     }
   };
 
-  console.log(stationNameOption);
-
-  if (stationNameOption === [])
-    return (
-      <S.EmptyWrapper>
-        <S.Title>지역을 선택해주세요.</S.Title>
-      </S.EmptyWrapper>
-    );
-
   if (isLoading)
     return (
       <S.Background>
