@@ -15,11 +15,30 @@ export const fineDustApi = createApi({
   reducerPath: "findDust",
   tagTypes: ["FindDust"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/",
+    baseUrl: "/api/B552584/ArpltnInforInqireSvc",
+    prepareHeaders: (headers) => {
+      headers.set("accept", "application/json, text/plain, */*");
+      return headers;
+    },
   }),
 
   endpoints: (builder) => ({
     getFineDustData: builder.query({
+      query: (sidoName) => ({
+        url: "/getCtprvnRltmMesureDnsty",
+        params: getParameters(sidoName),
+        keepUnusedDataFor: 600,
+      }),
+      query: (sidoName) => ({
+        url: "/getCtprvnRltmMesureDnsty",
+        params: getParameters(sidoName),
+        keepUnusedDataFor: 600,
+      }),
+      query: (sidoName) => ({
+        url: "/getCtprvnRltmMesureDnsty",
+        params: getParameters(sidoName),
+        keepUnusedDataFor: 600,
+      }),
       query: (sidoName) => ({
         url: "/getCtprvnRltmMesureDnsty",
         params: getParameters(sidoName),
