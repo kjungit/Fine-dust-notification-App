@@ -30,7 +30,11 @@ function SearchArea() {
       <S.SearchContainer>
         <S.ItemWrapper>
           {data.response.body.items.map((item, index) => (
-            <S.NavbarLink to={"/" + item.stationName} state={item} key={index}>
+            <S.NavbarLink
+              to={"/detail/" + item.stationName}
+              state={item}
+              key={index}
+            >
               <SecondInfoItem
                 data={item}
                 sidoName={item.sidoName}
