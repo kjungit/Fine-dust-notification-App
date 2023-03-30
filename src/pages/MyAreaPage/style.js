@@ -64,3 +64,11 @@ export const Spinner = styled.div`
   margin: 10rem auto;
   animation: ${rotation} 1s linear infinite;
 `;
+
+export const EmptyWrapper = styled.div``;
+export const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+`;
