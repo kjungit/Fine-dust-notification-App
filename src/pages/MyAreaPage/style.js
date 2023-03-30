@@ -4,7 +4,11 @@ import { keyframes } from "styled-components";
 export const MyAreaContainer = styled.div``;
 
 export const ItemWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 30px 0 150px;
+  gap: 10px 24px;
 `;
 export const SelectWrapper = styled.div`
   width: 100%;

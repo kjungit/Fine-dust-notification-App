@@ -9,7 +9,6 @@ export const ItemWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 30px 0 150px;
-  overflow: scroll;
   gap: 10px 24px;
 `;
 export const SelectWrapper = styled.div`

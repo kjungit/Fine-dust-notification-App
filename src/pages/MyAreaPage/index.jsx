@@ -36,6 +36,8 @@ function MyAreaPage() {
     }
   };
 
+  if (filterData.length === 0) return <div>찾으시는 지역을 검색해주세요</div>;
+
   if (isLoading)
     return (
       <S.Background>

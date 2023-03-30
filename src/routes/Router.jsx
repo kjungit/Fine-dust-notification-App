@@ -16,7 +16,7 @@ function Router() {
         <Route path="searchArea" element={<SearchPage />} />
         <Route path="favoriteArea" element={<FavoritePage />} />
         <Route path="/detail/:stationId" element={<DetailPage />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

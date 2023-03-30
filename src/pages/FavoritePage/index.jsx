@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import MainInfoItem from "../../components/MainInfoItem";
 import * as S from "./style";
 
@@ -7,16 +7,19 @@ function FavoriteArea() {
     JSON.parse(localStorage.getItem("favoriteData")) || []
   );
 
-  useEffect(() => {}, [favoriteData]);
-
-  const checkLocalStorage = () => {
+  const checkLocalStorage = useCallback(() => {
     const data = JSON.parse(localStorage.getItem("favoriteData")) || [];
     if (JSON.stringify(data) !== JSON.stringify(favoriteData)) {
       setFavoriteData(data);
     }
-  };
+  }, [favoriteData]); // add favoriteData as a dependency
 
-  setInterval(checkLocalStorage, 100);
+  useEffect(() => {
+    const intervalId = setInterval(checkLocalStorage, 100);
+    return () => clearInterval(intervalId);
+  }, [checkLocalStorage]);
+
+  if (favoriteData.length === 0) return <div>즐겨찾기가 비워져있어요</div>;
 
   return (
     <S.MyAreaContainer>
