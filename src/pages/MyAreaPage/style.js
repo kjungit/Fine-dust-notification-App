@@ -66,9 +66,4 @@ export const Spinner = styled.div`
 `;
 
 export const EmptyWrapper = styled.div``;
-export const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-`;
+export const Title = styled.div``;
