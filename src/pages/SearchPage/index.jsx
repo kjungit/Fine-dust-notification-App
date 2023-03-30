@@ -8,7 +8,6 @@ import { sidoNameList } from "../../constans/sidoName";
 function SearchArea() {
   const [sidoNameOption, setSidoNameOption] = useState("전국");
   const { data, isLoading, isError } = useGetFineDustDataQuery(sidoNameOption);
-  console.log(data, isLoading, isError);
   const changeHandler = (sidoNameOption) => {
     setSidoNameOption(sidoNameOption.value);
   };
