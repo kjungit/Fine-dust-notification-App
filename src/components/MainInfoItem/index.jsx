@@ -46,12 +46,11 @@ function MainInfoItem({
     const existingDataIndex =
       favoriteData.findIndex((item) => item.stationName === data.stationName) ||
       [];
-    console.log(existingDataIndex);
 
     if (!isClicked && existingDataIndex === -1) {
       favoriteData.push(data);
     }
-    if (existingDataIndex !== -1) {
+    if (existingDataIndex !== -1 || existingDataIndex === []) {
       favoriteData.splice(existingDataIndex, 1);
     }
     localStorage.setItem("favoriteData", JSON.stringify(favoriteData));

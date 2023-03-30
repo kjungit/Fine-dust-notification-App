@@ -37,7 +37,7 @@ function MyAreaPage() {
     }
   };
 
-  if (stationNameOption) {
+  if (stationNameOption.length === 0) {
     <S.EmptyWrapper>
       <S.Title>지역을 선택해주세요.</S.Title>
     </S.EmptyWrapper>;

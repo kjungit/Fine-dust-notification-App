@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainInfoItem from "../../components/MainInfoItem";
 import * as S from "./style";
 
@@ -7,6 +7,8 @@ function FavoriteArea() {
     JSON.parse(localStorage.getItem("favoriteData")) || []
   );
 
+  useEffect(() => {}, [favoriteData]);
+
   const checkLocalStorage = () => {
     const data = JSON.parse(localStorage.getItem("favoriteData")) || [];
     if (JSON.stringify(data) !== JSON.stringify(favoriteData)) {
@@ -14,7 +16,7 @@ function FavoriteArea() {
     }
   };
 
-  setInterval(checkLocalStorage, 500);
+  setInterval(checkLocalStorage, 100);
 
   return (
     <S.MyAreaContainer>
@@ -23,7 +25,7 @@ function FavoriteArea() {
           favoriteData.map((item, index) =>
             item && item.stationName ? (
               <S.NavbarLink
-                to={"/" + item.stationName}
+                to={"/detail/" + item.stationName}
                 state={item}
                 key={index}
               >
